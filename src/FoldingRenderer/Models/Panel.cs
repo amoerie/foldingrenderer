@@ -1,11 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace FoldingRenderer.Models {
-  public class Panel {
-    public Guid PanelId { get; set; }
+namespace FoldingRenderer.Models
+{
+  public class Panel
+  {
+    public Guid Id { get; set; }
+    public string Name { get; set; }
+    public PanelRotation Rotation { get; set; }
+    public int HingeOffset { get; set; }
+    public PanelDimensions Dimensions { get; set; }
+    public int AttachedToSide { get; set; }
+    public PanelCrease Crease { get; set; }
+    public bool IgnoreCollisions { get; set; }
+    public bool MouseEnabled { get; set; }
   }
 }
