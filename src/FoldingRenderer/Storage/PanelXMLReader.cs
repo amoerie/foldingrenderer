@@ -4,9 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FoldingRenderer.Tests
-{
-    public class Class1
-    {
-    }
+namespace FoldingRenderer.Storage {
+  class PanelXMLReader {
+  }
 }

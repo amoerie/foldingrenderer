@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<folding>
+  <panels>
+    <item panelId="872201A9-2D6E-FD0C-E7E9-A24588D95B5E" panelName="Dummy Panel"
+          minRot="1" maxRot="2" initialRot="3"
+          startRot="4" endRot="5" hingeOffset="6" panelWidth="7" panelHeight="8"
+          attachedToSide="9" creaseBottom="10" creaseTop="11" creaseLeft="12" creaseRight="13"
+          ignoreCollisions="true" mouseEnabled="true">
+    </item>
+  </panels>
+</folding>
