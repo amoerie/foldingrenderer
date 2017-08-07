@@ -48,6 +48,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -72,6 +73,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Domain\Drawing\TestsForRootPanelPositioner.cs" />
     <Compile Include="Domain\Types\TestsForPosition.cs" />
     <Compile Include="Domain\Types\TestsForPanel.cs" />
     <Compile Include="Domain\Types\TestsForPanelRotation.cs" />

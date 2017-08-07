@@ -18,8 +18,8 @@ namespace FoldingRenderer.Tests.Storage.Xml {
 
       public Map() {
         _folding = new XmlModels.Folding {
-          RootX = 17.4,
-          RootY = 3232.3,
+          RootX = 17,
+          RootY = 3232,
           OriginalDocumentWidth = 2410,
           OriginalDocumentHeight = 1500,
           Items = new [] {
@@ -61,7 +61,7 @@ namespace FoldingRenderer.Tests.Storage.Xml {
       [Fact]
       public void ShouldMapRootPanelPosition() {
         var actualRootPanelPosition = _sut.Map(_folding).RootPanelPosition;
-        var expectedRootPanelPosition = new Position().WithX(17.4).WithY(3232.3);
+        var expectedRootPanelPosition = new Position().WithX(17).WithY(3232);
         actualRootPanelPosition.ShouldBeEquivalentTo(expectedRootPanelPosition);
       }
 

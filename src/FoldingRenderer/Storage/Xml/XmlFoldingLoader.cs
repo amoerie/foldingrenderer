@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using FoldingRenderer.Domain.Types;
 using FoldingRenderer.Storage.Xml.Exceptions;
 
@@ -34,4 +34,3 @@ namespace FoldingRenderer.Storage.Xml {
     }
   }
 }
-

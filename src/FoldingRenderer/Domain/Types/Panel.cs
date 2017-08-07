@@ -6,12 +6,27 @@ namespace FoldingRenderer.Domain.Types {
     public Guid Id { get; private set; }
     public string Name { get; private set; }
     public PanelRotation Rotation { get; private set; }
+
+    /// <summary>
+    /// Gets the hinge offset. By default, panels are attached to the center of a side of the parent panel. 
+    /// The hinge offset defines, in px, how far removed from this center the attachment should really happen.
+    /// </summary>
     public double HingeOffset { get; private set; }
     public Dimensions Dimensions { get; private set; }
+
+    /// <summary>
+    /// Gets the index of the side (of the parent panel) to which this panel is attached. 
+    /// For rectangular panels, these indexes are defined as follows:
+    /// 0 = bottom
+    /// 1 = right
+    /// 2 = top
+    /// 3 = left
+    /// </summary>
     public int AttachedToSide { get; private set; }
     public PanelCrease Crease { get; private set; }
     public bool IgnoreCollisions { get; private set; }
     public bool MouseEnabled { get; private set; }
+
     public IImmutableList<Panel> AttachedPanels { get; private set; }
 
     public Panel() {
