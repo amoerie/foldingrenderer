@@ -1,9 +1,9 @@
 ﻿using System;
 using FluentAssertions;
-using FoldingRenderer.Models;
+using FoldingRenderer.Domain.Types;
 using Xunit;
 
-namespace FoldingRenderer.Tests.Models {
+namespace FoldingRenderer.Tests.Domain.Types {
   public class TestsForRotation {
     public class Constructor {
       [Theory]

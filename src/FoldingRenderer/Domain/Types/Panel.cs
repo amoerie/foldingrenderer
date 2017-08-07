@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Immutable;
 
-namespace FoldingRenderer.Models {
+namespace FoldingRenderer.Domain.Types {
   public class Panel {
     public Guid Id { get; private set; }
     public string Name { get; private set; }

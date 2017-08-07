@@ -1,4 +1,4 @@
-namespace FoldingRenderer.Models {
+namespace FoldingRenderer.Domain.Types {
   public class PanelCrease {
     public static readonly PanelCrease None = new PanelCrease();
 

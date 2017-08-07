@@ -72,11 +72,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\TestsForPanel.cs" />
-    <Compile Include="Models\TestsForPanelRotation.cs" />
-    <Compile Include="Models\TestsForPanelDimensions.cs" />
-    <Compile Include="Models\TestsForPanelCrease.cs" />
-    <Compile Include="Models\TestsForRotation.cs" />
+    <Compile Include="Domain\Types\TestsForPanel.cs" />
+    <Compile Include="Domain\Types\TestsForPanelRotation.cs" />
+    <Compile Include="Domain\Types\TestsForPanelDimensions.cs" />
+    <Compile Include="Domain\Types\TestsForPanelCrease.cs" />
+    <Compile Include="Domain\Types\TestsForRotation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Storage\TestsForEmbeddedResourceReader.cs" />
   </ItemGroup>

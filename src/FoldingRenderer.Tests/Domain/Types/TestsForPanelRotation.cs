@@ -1,8 +1,8 @@
 ﻿using FluentAssertions;
-using FoldingRenderer.Models;
+using FoldingRenderer.Domain.Types;
 using Xunit;
 
-namespace FoldingRenderer.Tests.Models {
+namespace FoldingRenderer.Tests.Domain.Types {
   public class TestsForPanelRotation {
     readonly PanelRotation _panelRotation;
 

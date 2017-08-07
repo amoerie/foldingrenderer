@@ -1,4 +1,4 @@
-namespace FoldingRenderer.Models {
+namespace FoldingRenderer.Domain.Types {
   public class PanelDimensions {
     public static readonly PanelDimensions None = new PanelDimensions();
 

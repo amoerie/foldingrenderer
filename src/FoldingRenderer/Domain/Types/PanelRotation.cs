@@ -1,12 +1,12 @@
-namespace FoldingRenderer.Models {
+namespace FoldingRenderer.Domain.Types {
   public class PanelRotation {
     public static readonly PanelRotation None = new PanelRotation();
 
-    public Rotation Minimum { get; set; }
-    public Rotation Maximum { get; set; }
-    public Rotation Initial { get; set; }
-    public Rotation Start { get; set; }
-    public Rotation End { get; set; }
+    public Rotation Minimum { get; }
+    public Rotation Maximum { get; }
+    public Rotation Initial { get; }
+    public Rotation Start { get; }
+    public Rotation End { get; }
 
     public PanelRotation() { }
 

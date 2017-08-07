@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace FoldingRenderer.Models {
+namespace FoldingRenderer.Domain.Types {
   public struct Rotation {
     readonly int _value;
 

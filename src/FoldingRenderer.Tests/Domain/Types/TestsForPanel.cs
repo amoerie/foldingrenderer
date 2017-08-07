@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Immutable;
 using FluentAssertions;
-using FoldingRenderer.Models;
+using FoldingRenderer.Domain.Types;
 using Xunit;
 
-namespace FoldingRenderer.Tests.Models {
+namespace FoldingRenderer.Tests.Domain.Types {
   public class TestsForPanel {
     readonly Panel _panel;
 
