@@ -1,9 +1,9 @@
 ﻿using System;
 using FluentAssertions;
-using FoldingRenderer.Storage.Xml;
+using FoldingRenderer.Storage;
 using Xunit;
 
-namespace FoldingRenderer.Tests.Storage.Xml {
+namespace FoldingRenderer.Tests.Storage {
   public class TestsForEmbeddedResourceReader {
     readonly EmbeddedResourceReader _sut;
 
@@ -12,17 +12,25 @@ namespace FoldingRenderer.Tests.Storage.Xml {
     }
 
     public class Read : TestsForEmbeddedResourceReader {
+
+      [Fact]
+      public void ShouldThrowWhenEmbeddedResourceIsNull() {
+        new Action(() => _sut.Read(null)).ShouldThrow<ArgumentNullException>();
+      }
+
       [Fact]
       public void ShouldCorrectlyReadAllContents() {
-        var contents = _sut.Read(typeof(TestsForEmbeddedResourceReader).Assembly,
+        var embeddedResource = new EmbeddedResource(typeof(TestsForEmbeddedResourceReader).Assembly,
           typeof(TestsForEmbeddedResourceReader).Namespace + ".HelloWorld.txt");
+        var contents = _sut.Read(embeddedResource);
         contents.Should().NotBeNullOrEmpty().And.Be("Hello world!");
       }
 
       [Fact]
       public void ShouldFailToReadIncorrectPath() {
-        Action invalidPathRead = () => _sut.Read(typeof(TestsForEmbeddedResourceReader).Assembly,
+        var embeddedResource = new EmbeddedResource(typeof(TestsForEmbeddedResourceReader).Assembly,
           typeof(TestsForEmbeddedResourceReader).Namespace + ".HelloWorld2.txt");
+        Action invalidPathRead = () => _sut.Read(embeddedResource);
         invalidPathRead.ShouldThrow<ArgumentException>();
       }
     }

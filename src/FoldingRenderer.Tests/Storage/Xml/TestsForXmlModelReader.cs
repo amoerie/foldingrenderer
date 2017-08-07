@@ -1,5 +1,6 @@
 ﻿using System;
 using FluentAssertions;
+using FoldingRenderer.Storage;
 using FoldingRenderer.Storage.Xml;
 using Xunit;
 
@@ -20,7 +21,8 @@ namespace FoldingRenderer.Tests.Storage.Xml {
 
       [Fact]
       public void ShouldReadFoldingWithSinglePanelCorrectly() {
-        var xml = _embeddedResourceReader.Read(typeof(TestsForXmlModelReader).Assembly, typeof(TestsForXmlModelReader).Namespace + ".SinglePanel.xml");
+        var singlePanel = new EmbeddedResource(typeof(TestsForXmlModelReader).Assembly, typeof(TestsForXmlModelReader).Namespace + ".SinglePanel.xml");
+        var xml = _embeddedResourceReader.Read(singlePanel);
         var actualFolding = _sut.Read(xml);
 
         var expectedFolding = new XmlModels.Folding {
@@ -56,7 +58,8 @@ namespace FoldingRenderer.Tests.Storage.Xml {
 
       [Fact]
       public void ShouldReadFoldingWithNestedPanelsCorrectly() {
-        var xml = _embeddedResourceReader.Read(typeof(TestsForXmlModelReader).Assembly, typeof(TestsForXmlModelReader).Namespace + ".NestedPanels.xml");
+        var nestedPanels = new EmbeddedResource(typeof(TestsForXmlModelReader).Assembly, typeof(TestsForXmlModelReader).Namespace + ".NestedPanels.xml");
+        var xml = _embeddedResourceReader.Read(nestedPanels);
         var actualFolding = _sut.Read(xml);
 
         var expectedFolding = new XmlModels.Folding {

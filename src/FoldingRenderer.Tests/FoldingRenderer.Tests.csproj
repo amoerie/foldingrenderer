@@ -78,16 +78,17 @@
     <Compile Include="Domain\Types\TestsForPanelCrease.cs" />
     <Compile Include="Domain\Types\TestsForRotation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Storage\Xml\TestsForEmbeddedResourceReader.cs" />
+    <Compile Include="Storage\TestsForEmbeddedResourceReader.cs" />
     <Compile Include="Storage\Xml\TestsForXmlModelReader.cs" />
     <Compile Include="Storage\Xml\TestsForXmlModelMapper.cs" />
+    <Compile Include="Storage\Xml\TestsForXmlPanelService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Storage\Xml\SinglePanel.xml" />
-    <EmbeddedResource Include="Storage\Xml\HelloWorld.txt" />
+    <EmbeddedResource Include="Storage\HelloWorld.txt" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Storage\Xml\NestedPanels.xml" />

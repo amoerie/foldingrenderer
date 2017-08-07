@@ -54,10 +54,15 @@
     <Compile Include="Domain\Types\Rotation.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Storage\Xml\EmbeddedResourceReader.cs" />
+    <Compile Include="Storage\EmbeddedResource.cs" />
+    <Compile Include="Storage\EmbeddedResourceReader.cs" />
+    <Compile Include="Storage\EmbeddedResources.cs" />
+    <Compile Include="Storage\Xml\Exceptions\MultipleRootPanelsException.cs" />
+    <Compile Include="Storage\Xml\Exceptions\NoPanelsException.cs" />
     <Compile Include="Storage\Xml\XmlModelMapper.cs" />
     <Compile Include="Storage\Xml\XmlModelReader.cs" />
     <Compile Include="Storage\Xml\XmlModels.cs" />
+    <Compile Include="Storage\Xml\XmlRootPanelService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
