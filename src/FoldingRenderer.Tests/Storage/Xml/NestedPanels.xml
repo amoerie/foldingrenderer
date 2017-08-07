@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<folding>
+  <panels>
+    <item panelId="872201A9-2D6E-FD0C-E7E9-A24588D95B5E" panelName="Dummy Panel"
+          minRot="1" maxRot="2" initialRot="3"
+          startRot="4" endRot="5" hingeOffset="6" panelWidth="7" panelHeight="8"
+          attachedToSide="9" creaseBottom="10" creaseTop="11" creaseLeft="12" creaseRight="13"
+          ignoreCollisions="true" mouseEnabled="true">
+      <attachedPanels>
+        <item panelId="F81E0416-1B71-4ECF-BF38-CAABE546554C" panelName="Dummy Panel 2"
+              minRot="10" maxRot="20" initialRot="30"
+              startRot="40" endRot="50" hingeOffset="60" panelWidth="70" panelHeight="80"
+              attachedToSide="90" creaseBottom="100" creaseTop="110" creaseLeft="120" creaseRight="130"
+              ignoreCollisions="false" mouseEnabled="false">
+          <attachedPanels />
+        </item>
+      </attachedPanels>
+    </item>
+  </panels>
+</folding>

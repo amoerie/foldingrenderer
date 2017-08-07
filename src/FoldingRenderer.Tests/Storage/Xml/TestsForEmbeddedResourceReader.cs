@@ -1,10 +1,9 @@
 ﻿using System;
 using FluentAssertions;
-using FoldingRenderer.Storage;
 using FoldingRenderer.Storage.Xml;
 using Xunit;
 
-namespace FoldingRenderer.Tests.Storage {
+namespace FoldingRenderer.Tests.Storage.Xml {
   public class TestsForEmbeddedResourceReader {
     readonly EmbeddedResourceReader _sut;
 

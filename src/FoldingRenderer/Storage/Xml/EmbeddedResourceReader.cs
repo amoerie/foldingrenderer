@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Reflection;
+using System.Text;
 
 namespace FoldingRenderer.Storage.Xml {
   public interface IEmbeddedResourceReader {
@@ -13,7 +14,7 @@ namespace FoldingRenderer.Storage.Xml {
         if (stream == null) {
           throw new ArgumentException("Embedded resource '" + path + "' could not be found.");
         }
-        using (var reader = new StreamReader(stream)) {
+        using (var reader = new StreamReader(stream, Encoding.UTF8)) {
           return reader.ReadToEnd();
         }
       }

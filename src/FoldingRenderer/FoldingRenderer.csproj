@@ -55,7 +55,8 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Storage\Xml\EmbeddedResourceReader.cs" />
-    <Compile Include="Storage\Xml\PanelXMLReader.cs" />
+    <Compile Include="Storage\Xml\XmlModelMapper.cs" />
+    <Compile Include="Storage\Xml\XmlModelReader.cs" />
     <Compile Include="Storage\Xml\XmlModels.cs" />
   </ItemGroup>
   <ItemGroup>
