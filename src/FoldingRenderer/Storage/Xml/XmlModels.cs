@@ -6,10 +6,10 @@ namespace FoldingRenderer.Storage.Xml {
     [XmlRoot("folding", Namespace = "", IsNullable = false)]
     public class Folding {
       [XmlAttribute("rootX")]
-      public int RootX { get; set; }
+      public double RootX { get; set; }
 
       [XmlAttribute("rootY")]
-      public int RootY { get; set; }
+      public double RootY { get; set; }
 
       [XmlAttribute("originalDocumentHeight")]
       public int OriginalDocumentHeight { get; set; }
@@ -46,28 +46,28 @@ namespace FoldingRenderer.Storage.Xml {
       public int EndRot { get; set; }
 
       [XmlAttribute("hingeOffset")]
-      public int HingeOffset { get; set; }
+      public double HingeOffset { get; set; }
 
       [XmlAttribute("panelWidth")]
-      public int PanelWidth { get; set; }
+      public double PanelWidth { get; set; }
 
       [XmlAttribute("panelHeight")]
-      public int PanelHeight { get; set; }
+      public double PanelHeight { get; set; }
 
       [XmlAttribute("attachedToSide")]
       public int AttachedToSide { get; set; }
 
       [XmlAttribute("creaseBottom")]
-      public int CreaseBottom { get; set; }
+      public double CreaseBottom { get; set; }
 
       [XmlAttribute("creaseTop")]
-      public int CreaseTop { get; set; }
+      public double CreaseTop { get; set; }
 
       [XmlAttribute("creaseLeft")]
-      public int CreaseLeft { get; set; }
+      public double CreaseLeft { get; set; }
 
       [XmlAttribute("creaseRight")]
-      public int CreaseRight { get; set; }
+      public double CreaseRight { get; set; }
 
       [XmlAttribute("ignoreCollisions")]
       public bool IgnoreCollisions { get; set; }

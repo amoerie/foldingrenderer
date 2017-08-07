@@ -3,8 +3,8 @@
   <panels>
     <item panelId="872201A9-2D6E-FD0C-E7E9-A24588D95B5E" panelName="Dummy Panel"
           minRot="1" maxRot="2" initialRot="3"
-          startRot="4" endRot="5" hingeOffset="6" panelWidth="7" panelHeight="8"
-          attachedToSide="9" creaseBottom="10" creaseTop="11" creaseLeft="12" creaseRight="13"
+          startRot="4" endRot="5" hingeOffset="6.0" panelWidth="7.0" panelHeight="8.0"
+          attachedToSide="9" creaseBottom="10.0" creaseTop="11.0" creaseLeft="12.0" creaseRight="13.0"
           ignoreCollisions="true" mouseEnabled="true">
       <attachedPanels />
     </item>

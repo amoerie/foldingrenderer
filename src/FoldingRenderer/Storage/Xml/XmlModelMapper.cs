@@ -22,8 +22,8 @@ namespace FoldingRenderer.Storage.Xml {
           .WithEnd(new Rotation(panel.EndRot)))
         .WithHingeOffset(panel.HingeOffset)
         .WithDimensions(new Dimensions()
-          .WithWidth(panel.PanelWidth)
-          .WithHeight(panel.PanelHeight))
+          .WithWidth((int) panel.PanelWidth)
+          .WithHeight((int) panel.PanelHeight))
         .WithAttachedToSide(panel.AttachedToSide)
         .WithCrease(new PanelCrease()
           .WithBottom(panel.CreaseBottom)
@@ -39,7 +39,7 @@ namespace FoldingRenderer.Storage.Xml {
       if(folding == null) throw new ArgumentNullException(nameof(folding));
       return new Folding(
         new Dimensions().WithWidth(folding.OriginalDocumentWidth).WithHeight(folding.OriginalDocumentHeight),
-        new Position().WithX(folding.RootX).WithY(folding.RootY),
+        new Position().WithX((int) folding.RootX).WithY((int) folding.RootY),
         Map(folding.Items.Single()));
     }
   }

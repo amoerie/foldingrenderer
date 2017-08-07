@@ -66,6 +66,7 @@
     <Compile Include="Storage\EmbeddedResource.cs" />
     <Compile Include="Storage\EmbeddedResourceReader.cs" />
     <Compile Include="Storage\EmbeddedResources.cs" />
+    <Compile Include="Storage\Jpg\DrawingSaver.cs" />
     <Compile Include="Storage\Xml\Exceptions\MultipleRootPanelsException.cs" />
     <Compile Include="Storage\Xml\Exceptions\NoPanelsException.cs" />
     <Compile Include="Storage\Xml\XmlFoldingLoader.cs" />
@@ -79,7 +80,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Content Include="Storage\Xml\BeerPack.xml" />
+    <EmbeddedResource Include="Storage\Xml\BeerPack.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

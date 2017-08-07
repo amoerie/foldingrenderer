@@ -16,9 +16,9 @@ namespace FoldingRenderer.Domain.Types {
       Right = right;
     }
 
-    public PanelCrease WithBottom(int bottom) => new PanelCrease(bottom, Top, Left, Right);
-    public PanelCrease WithTop(int top) => new PanelCrease(Bottom, top, Left, Right);
-    public PanelCrease WithLeft(int left) => new PanelCrease(Bottom, Top, left, Right);
-    public PanelCrease WithRight(int right) => new PanelCrease(Bottom, Top, Left, right);
+    public PanelCrease WithBottom(double bottom) => new PanelCrease(bottom, Top, Left, Right);
+    public PanelCrease WithTop(double top) => new PanelCrease(Bottom, top, Left, Right);
+    public PanelCrease WithLeft(double left) => new PanelCrease(Bottom, Top, left, Right);
+    public PanelCrease WithRight(double right) => new PanelCrease(Bottom, Top, Left, right);
   }
 }
