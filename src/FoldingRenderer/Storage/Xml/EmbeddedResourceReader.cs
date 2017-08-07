@@ -2,7 +2,7 @@
 using System.IO;
 using System.Reflection;
 
-namespace FoldingRenderer.Storage {
+namespace FoldingRenderer.Storage.Xml {
   public interface IEmbeddedResourceReader {
     string Read(Assembly assembly, string path);
   }
