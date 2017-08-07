@@ -47,9 +47,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Domain\Types\Position.cs" />
+    <Compile Include="Domain\Types\Folding.cs" />
     <Compile Include="Domain\Types\Panel.cs" />
     <Compile Include="Domain\Types\PanelCrease.cs" />
-    <Compile Include="Domain\Types\PanelDimensions.cs" />
+    <Compile Include="Domain\Types\Dimensions.cs" />
     <Compile Include="Domain\Types\PanelRotation.cs" />
     <Compile Include="Domain\Types\Rotation.cs" />
     <Compile Include="Program.cs" />

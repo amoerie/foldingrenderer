@@ -3,16 +3,16 @@ using FoldingRenderer.Domain.Types;
 using Xunit;
 
 namespace FoldingRenderer.Tests.Domain.Types {
-  public class TestsForPanelDimensions {
-    readonly PanelDimensions _panelDimensions;
+  public class TestsForDimensions {
+    readonly Dimensions _dimensions;
 
-    protected TestsForPanelDimensions() {
-      _panelDimensions = new PanelDimensions()
+    protected TestsForDimensions() {
+      _dimensions = new Dimensions()
         .WithWidth(1)
         .WithHeight(2);
     }
 
-    public class WithWidth : TestsForPanelDimensions {
+    public class WithWidth : TestsForDimensions {
       readonly int _value;
 
       public WithWidth() {
@@ -21,21 +21,21 @@ namespace FoldingRenderer.Tests.Domain.Types {
 
       [Fact]
       public void ShouldReturnNewPanelDimensionsWithUpdatedWidth() {
-        _panelDimensions.WithWidth(_value).Should().NotBeSameAs(_panelDimensions);
+        _dimensions.WithWidth(_value).Should().NotBeSameAs(_dimensions);
       }
 
       [Fact]
       public void ShouldReturnPanelDimensionsWithUpdatedWidth() {
-        _panelDimensions.WithWidth(_value).Width.Should().Be(_value);
+        _dimensions.WithWidth(_value).Width.Should().Be(_value);
       }
 
       [Fact]
       public void ShouldReturnPanelDimensionsWithSamePropertiesExceptForWidth() {
-        _panelDimensions.WithWidth(_value).ShouldBeEquivalentTo(_panelDimensions, c => c.Excluding(p => p.Width));
+        _dimensions.WithWidth(_value).ShouldBeEquivalentTo(_dimensions, c => c.Excluding(p => p.Width));
       }
     }
 
-    public class WithHeight : TestsForPanelDimensions {
+    public class WithHeight : TestsForDimensions {
       readonly int _value;
 
       public WithHeight() {
@@ -44,17 +44,17 @@ namespace FoldingRenderer.Tests.Domain.Types {
 
       [Fact]
       public void ShouldReturnNewPanelDimensionsWithUpdatedHeight() {
-        _panelDimensions.WithHeight(_value).Should().NotBeSameAs(_panelDimensions);
+        _dimensions.WithHeight(_value).Should().NotBeSameAs(_dimensions);
       }
 
       [Fact]
       public void ShouldReturnPanelDimensionsWithUpdatedHeight() {
-        _panelDimensions.WithHeight(_value).Height.Should().Be(_value);
+        _dimensions.WithHeight(_value).Height.Should().Be(_value);
       }
 
       [Fact]
       public void ShouldReturnPanelDimensionsWithSamePropertiesExceptForHeight() {
-        _panelDimensions.WithHeight(_value).ShouldBeEquivalentTo(_panelDimensions, c => c.Excluding(p => p.Height));
+        _dimensions.WithHeight(_value).ShouldBeEquivalentTo(_dimensions, c => c.Excluding(p => p.Height));
       }
     }
   }

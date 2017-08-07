@@ -11,22 +11,22 @@ namespace FoldingRenderer.Tests.Storage.Xml {
     readonly IEmbeddedResourceReader _embeddedResourceReader;
     readonly IXmlModelReader _xmlModelReader;
     readonly IXmlModelMapper _xmlModelMapper;
-    readonly XmlRootPanelService _sut;
+    readonly XmlFoldingLoader _sut;
 
     public TestsForXmlPanelService() {
       _embeddedResourceReader = A.Fake<IEmbeddedResourceReader>();
       _xmlModelReader = A.Fake<IXmlModelReader>();
       _xmlModelMapper = A.Fake<IXmlModelMapper>();
-      _sut = new XmlRootPanelService(_embeddedResourceReader, _xmlModelReader, _xmlModelMapper);
+      _sut = new XmlFoldingLoader(_embeddedResourceReader, _xmlModelReader, _xmlModelMapper);
     }
 
     public class Constructor : TestsForXmlPanelService {
 
       [Fact]
       public void ShouldNotAcceptNullArguments() {
-        new Action(() => new XmlRootPanelService(null, _xmlModelReader, _xmlModelMapper)).ShouldThrow<ArgumentNullException>();
-        new Action(() => new XmlRootPanelService(_embeddedResourceReader, null, _xmlModelMapper)).ShouldThrow<ArgumentNullException>();
-        new Action(() => new XmlRootPanelService(_embeddedResourceReader, _xmlModelReader, null)).ShouldThrow<ArgumentNullException>();
+        new Action(() => new XmlFoldingLoader(null, _xmlModelReader, _xmlModelMapper)).ShouldThrow<ArgumentNullException>();
+        new Action(() => new XmlFoldingLoader(_embeddedResourceReader, null, _xmlModelMapper)).ShouldThrow<ArgumentNullException>();
+        new Action(() => new XmlFoldingLoader(_embeddedResourceReader, _xmlModelReader, null)).ShouldThrow<ArgumentNullException>();
       }
 
     }

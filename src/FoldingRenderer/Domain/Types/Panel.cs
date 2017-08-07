@@ -7,7 +7,7 @@ namespace FoldingRenderer.Domain.Types {
     public string Name { get; private set; }
     public PanelRotation Rotation { get; private set; }
     public double HingeOffset { get; private set; }
-    public PanelDimensions Dimensions { get; private set; }
+    public Dimensions Dimensions { get; private set; }
     public int AttachedToSide { get; private set; }
     public PanelCrease Crease { get; private set; }
     public bool IgnoreCollisions { get; private set; }
@@ -16,7 +16,7 @@ namespace FoldingRenderer.Domain.Types {
 
     public Panel() {
       Rotation = PanelRotation.None;
-      Dimensions = PanelDimensions.None;
+      Dimensions = Dimensions.None;
       Crease = PanelCrease.None;
       AttachedPanels = ImmutableList<Panel>.Empty;
     }
@@ -42,7 +42,7 @@ namespace FoldingRenderer.Domain.Types {
     public Panel WithName(string name) => Clone(p => p.Name = name);
     public Panel WithRotation(PanelRotation rotation) => Clone(p => p.Rotation = rotation ?? PanelRotation.None);
     public Panel WithHingeOffset(double hingeOffset) => Clone(p => p.HingeOffset = hingeOffset);
-    public Panel WithDimensions(PanelDimensions dimensions) => Clone(p => p.Dimensions = dimensions ?? PanelDimensions.None);
+    public Panel WithDimensions(Dimensions dimensions) => Clone(p => p.Dimensions = dimensions ?? Dimensions.None);
     public Panel WithAttachedToSide(int side) => Clone(p => p.AttachedToSide = side);
     public Panel WithCrease(PanelCrease crease) => Clone(p => p.Crease = crease);
     public Panel WithIgnoreCollisions(bool ignoreCollisions) => Clone(p => p.IgnoreCollisions = ignoreCollisions);

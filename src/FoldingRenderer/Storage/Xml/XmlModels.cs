@@ -5,6 +5,18 @@ namespace FoldingRenderer.Storage.Xml {
   public class XmlModels {
     [XmlRoot("folding", Namespace = "", IsNullable = false)]
     public class Folding {
+      [XmlAttribute("rootX")]
+      public double RootX { get; set; }
+
+      [XmlAttribute("rootY")]
+      public double RootY { get; set; }
+
+      [XmlAttribute("originalDocumentHeight")]
+      public int OriginalDocumentHeight { get; set; }
+
+      [XmlAttribute("originalDocumentWidth")]
+      public int OriginalDocumentWidth { get; set; }
+
       [XmlArray("panels")]
       [XmlArrayItem("item", typeof(Item))]
       public Item[] Items { get; set; }

@@ -14,7 +14,7 @@ namespace FoldingRenderer.Tests.Domain.Types {
         .WithName("Panel 1")
         .WithRotation(new PanelRotation().WithInitial(new Rotation(154)))
         .WithHingeOffset(0.5)
-        .WithDimensions(new PanelDimensions().WithWidth(411))
+        .WithDimensions(new Dimensions().WithWidth(411))
         .WithAttachedToSide(3)
         .WithCrease(new PanelCrease().WithRight(45))
         .WithIgnoreCollisions(true)
@@ -115,10 +115,10 @@ namespace FoldingRenderer.Tests.Domain.Types {
     }
 
     public class WithDimensions : TestsForPanel {
-      readonly PanelDimensions _value;
+      readonly Dimensions _value;
 
       public WithDimensions() {
-        _value = new PanelDimensions().WithHeight(448);
+        _value = new Dimensions().WithHeight(448);
       }
 
       [Fact]

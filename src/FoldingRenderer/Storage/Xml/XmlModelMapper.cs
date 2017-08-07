@@ -5,11 +5,11 @@ using FoldingRenderer.Domain.Types;
 
 namespace FoldingRenderer.Storage.Xml {
   public interface IXmlModelMapper {
-    Panel Map(XmlModels.Item panel);
+    Folding Map(XmlModels.Folding folding);
   }
 
   public class XmlModelMapper : IXmlModelMapper {
-    public Panel Map(XmlModels.Item panel) {
+    Panel Map(XmlModels.Item panel) {
       if (panel == null) throw new ArgumentNullException(nameof(panel));
       return new Panel()
         .WithId(panel.PanelId)
@@ -21,7 +21,7 @@ namespace FoldingRenderer.Storage.Xml {
           .WithStart(new Rotation(panel.StartRot))
           .WithEnd(new Rotation(panel.EndRot)))
         .WithHingeOffset(panel.HingeOffset)
-        .WithDimensions(new PanelDimensions()
+        .WithDimensions(new Dimensions()
           .WithWidth(panel.PanelWidth)
           .WithHeight(panel.PanelHeight))
         .WithAttachedToSide(panel.AttachedToSide)
@@ -33,6 +33,14 @@ namespace FoldingRenderer.Storage.Xml {
         .WithIgnoreCollisions(panel.IgnoreCollisions)
         .WithMouseEnabled(panel.MouseEnabled)
         .WithAttachedPanels(panel.AttachedPanels?.Select(Map).ToImmutableList() ?? ImmutableList<Panel>.Empty);
+    }
+
+    public Folding Map(XmlModels.Folding folding) {
+      if(folding == null) throw new ArgumentNullException(nameof(folding));
+      return new Folding(
+        new Dimensions().WithWidth(folding.OriginalDocumentWidth).WithHeight(folding.OriginalDocumentHeight),
+        new Position().WithX(folding.RootX).WithY(folding.RootY),
+        Map(folding.Items.Single()));
     }
   }
 }

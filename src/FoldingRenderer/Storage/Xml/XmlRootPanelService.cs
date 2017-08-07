@@ -1,19 +1,18 @@
 ﻿using System;
-using System.Linq;
 using FoldingRenderer.Domain.Types;
 using FoldingRenderer.Storage.Xml.Exceptions;
 
 namespace FoldingRenderer.Storage.Xml {
-  public interface IXmlPanelService {
-    Panel Load(EmbeddedResource embeddedResource);
+  public interface IXmlFoldingLoader {
+    Folding Load(EmbeddedResource embeddedResource);
   }
 
-  public class XmlRootPanelService : IXmlPanelService {
+  public class XmlFoldingLoader : IXmlFoldingLoader {
     readonly IEmbeddedResourceReader _embeddedResourceReader;
     readonly IXmlModelReader _xmlModelReader;
     readonly IXmlModelMapper _xmlModelMapper;
 
-    public XmlRootPanelService(IEmbeddedResourceReader embeddedResourceReader, IXmlModelReader xmlModelReader, IXmlModelMapper xmlModelMapper) {
+    public XmlFoldingLoader(IEmbeddedResourceReader embeddedResourceReader, IXmlModelReader xmlModelReader, IXmlModelMapper xmlModelMapper) {
       if (embeddedResourceReader == null) throw new ArgumentNullException(nameof(embeddedResourceReader));
       if (xmlModelReader == null) throw new ArgumentNullException(nameof(xmlModelReader));
       if (xmlModelMapper == null) throw new ArgumentNullException(nameof(xmlModelMapper));
@@ -22,7 +21,7 @@ namespace FoldingRenderer.Storage.Xml {
       _xmlModelMapper = xmlModelMapper;
     }
 
-    public Panel Load(EmbeddedResource embeddedResource) {
+    public Folding Load(EmbeddedResource embeddedResource) {
       if (embeddedResource == null) throw new ArgumentNullException(nameof(embeddedResource));
       var embeddedResourceContents = _embeddedResourceReader.Read(embeddedResource);
       var xmlModel = _xmlModelReader.Read(embeddedResourceContents);
@@ -31,8 +30,7 @@ namespace FoldingRenderer.Storage.Xml {
       if (xmlModel.Items.Length != 1) {
         throw new MultipleRootPanelsException(xmlModel.Items.Length);
       }
-      var rootPanel = xmlModel.Items.SingleOrDefault();
-      return _xmlModelMapper.Map(rootPanel);
+      return _xmlModelMapper.Map(xmlModel);
     }
   }
 }
