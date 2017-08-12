@@ -1,7 +1,7 @@
 ﻿using System;
-using FoldingRenderer.Domain.Types;
+using FoldingRenderer.Types;
 
-namespace FoldingRenderer.Domain.Drawing {
+namespace FoldingRenderer.Drawing {
   public interface IAttachToHingeDeterminer {
     /// <summary>
     /// Determines the hinge of the <paramref name="parent"/> to which the <paramref name="child"/> panel should attach.

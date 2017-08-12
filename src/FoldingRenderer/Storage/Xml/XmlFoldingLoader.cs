@@ -1,6 +1,6 @@
 using System;
-using FoldingRenderer.Domain.Types;
 using FoldingRenderer.Storage.Xml.Exceptions;
+using FoldingRenderer.Types;
 
 namespace FoldingRenderer.Storage.Xml {
   public interface IXmlFoldingLoader {

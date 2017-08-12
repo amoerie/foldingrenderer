@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Immutable;
 using FluentAssertions;
-using FoldingRenderer.Domain.Types;
 using FoldingRenderer.Storage.Xml;
+using FoldingRenderer.Types;
 using Xunit;
 
 namespace FoldingRenderer.Tests.Storage.Xml {

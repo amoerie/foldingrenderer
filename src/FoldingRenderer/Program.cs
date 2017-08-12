@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
-using FoldingRenderer.Domain.Drawing;
+using FoldingRenderer.Drawing;
 using FoldingRenderer.Storage;
 using FoldingRenderer.Storage.Jpg;
 using FoldingRenderer.Storage.Xml;

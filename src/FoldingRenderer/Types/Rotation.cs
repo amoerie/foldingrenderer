@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace FoldingRenderer.Domain.Types {
+namespace FoldingRenderer.Types {
   public struct Rotation {
     public static Rotation None = new Rotation(0);
     public static Rotation Right = new Rotation(90);

@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Drawing;
-using FoldingRenderer.Domain.Types;
+using FoldingRenderer.Types;
 
-namespace FoldingRenderer.Domain.Drawing {
+namespace FoldingRenderer.Drawing {
   public class PanelRectangle {
     /// <summary>
     /// Gets the panel.

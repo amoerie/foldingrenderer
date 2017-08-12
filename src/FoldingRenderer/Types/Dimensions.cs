@@ -1,6 +1,6 @@
 using System.Drawing;
 
-namespace FoldingRenderer.Domain.Types {
+namespace FoldingRenderer.Types {
   public sealed class Dimensions {
     public static readonly Dimensions None = new Dimensions();
 

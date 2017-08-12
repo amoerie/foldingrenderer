@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Drawing;
-using FoldingRenderer.Domain.Types;
+using FoldingRenderer.Types;
 
-namespace FoldingRenderer.Domain.Drawing {
+namespace FoldingRenderer.Drawing {
   public interface IRectangleRotator {
     Rectangle Rotate(Position hinge, Rectangle rectangle, Rotation rotation);
   }

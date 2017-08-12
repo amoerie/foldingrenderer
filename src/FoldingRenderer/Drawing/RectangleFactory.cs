@@ -1,7 +1,7 @@
 ﻿using System.Drawing;
-using FoldingRenderer.Domain.Types;
+using FoldingRenderer.Types;
 
-namespace FoldingRenderer.Domain.Drawing {
+namespace FoldingRenderer.Drawing {
   public interface IRectangleFactory {
     Rectangle Create(Position bottomHinge, Dimensions dimensions);
   }

@@ -1,4 +1,4 @@
-namespace FoldingRenderer.Domain.Types {
+namespace FoldingRenderer.Types {
   public class PanelRotation {
     public static readonly PanelRotation None = new PanelRotation();
 

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Drawing;
 
-namespace FoldingRenderer.Domain.Drawing {
+namespace FoldingRenderer.Drawing {
   public interface ICanvas {
     Bitmap Bitmap { get; }
   }

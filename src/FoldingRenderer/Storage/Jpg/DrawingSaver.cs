@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Drawing.Imaging;
 using System.IO;
-using FoldingRenderer.Domain.Drawing;
+using FoldingRenderer.Drawing;
 
 namespace FoldingRenderer.Storage.Jpg {
   public interface IDrawingSaver {

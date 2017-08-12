@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Immutable;
 using System.Linq;
-using FoldingRenderer.Domain.Types;
+using FoldingRenderer.Types;
 
 namespace FoldingRenderer.Storage.Xml {
   public interface IXmlModelMapper {

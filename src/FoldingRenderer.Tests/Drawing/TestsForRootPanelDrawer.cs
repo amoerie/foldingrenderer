@@ -1,11 +1,11 @@
 ﻿using System;
 using FakeItEasy;
 using FluentAssertions;
-using FoldingRenderer.Domain.Drawing;
-using FoldingRenderer.Domain.Types;
+using FoldingRenderer.Drawing;
+using FoldingRenderer.Types;
 using Xunit;
 
-namespace FoldingRenderer.Tests.Domain.Drawing {
+namespace FoldingRenderer.Tests.Drawing {
   public class TestsForRootPanelDrawer {
     readonly IRootPanelPositioner _rootPanelPositioner;
     readonly IPanelRectangleDrawer _panelRectangleDrawer;

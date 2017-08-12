@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace FoldingRenderer.Domain.Types {
+namespace FoldingRenderer.Types {
   public class Folding {
     public Dimensions Dimensions { get; }
     public Position RootPanelPosition { get; }

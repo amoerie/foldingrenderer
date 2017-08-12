@@ -1,6 +1,6 @@
 ﻿using System.Drawing;
 
-namespace FoldingRenderer.Domain.Drawing {
+namespace FoldingRenderer.Drawing {
   public interface IPanelRectangleDrawer {
     ICanvas Draw(ICanvas canvas, PanelRectangle panelRectangle);
   }

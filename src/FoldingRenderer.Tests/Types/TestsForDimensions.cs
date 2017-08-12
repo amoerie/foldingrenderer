@@ -1,8 +1,8 @@
 ﻿using FluentAssertions;
-using FoldingRenderer.Domain.Types;
+using FoldingRenderer.Types;
 using Xunit;
 
-namespace FoldingRenderer.Tests.Domain.Types {
+namespace FoldingRenderer.Tests.Types {
   public class TestsForDimensions {
     readonly Dimensions _dimensions;
 

@@ -1,7 +1,7 @@
 ﻿using System;
-using FoldingRenderer.Domain.Types;
+using FoldingRenderer.Types;
 
-namespace FoldingRenderer.Domain.Drawing {
+namespace FoldingRenderer.Drawing {
   public interface IRotationDeterminer {
     /// <summary>
     /// Determines the rotation of the panel relative to its parent.

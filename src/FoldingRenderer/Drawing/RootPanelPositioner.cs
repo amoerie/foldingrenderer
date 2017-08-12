@@ -1,7 +1,7 @@
 ﻿using System;
-using FoldingRenderer.Domain.Types;
+using FoldingRenderer.Types;
 
-namespace FoldingRenderer.Domain.Drawing {
+namespace FoldingRenderer.Drawing {
   public interface IRootPanelPositioner {
     PanelRectangle Position(Panel rootPanel, Position rootPanelPosition);
   }
