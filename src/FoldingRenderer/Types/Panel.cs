@@ -11,7 +11,7 @@ namespace FoldingRenderer.Types {
     /// Gets the hinge offset. By default, panels are attached to the center of a side of the parent panel. 
     /// The hinge offset defines, in px, how far removed from this center the attachment should really happen.
     /// </summary>
-    public double HingeOffset { get; private set; }
+    public int HingeOffset { get; private set; }
     public Dimensions Dimensions { get; private set; }
 
     /// <summary>
@@ -56,7 +56,7 @@ namespace FoldingRenderer.Types {
     public Panel WithId(Guid id) => Clone(p => p.Id = id);
     public Panel WithName(string name) => Clone(p => p.Name = name);
     public Panel WithRotation(PanelRotation rotation) => Clone(p => p.Rotation = rotation ?? PanelRotation.None);
-    public Panel WithHingeOffset(double hingeOffset) => Clone(p => p.HingeOffset = hingeOffset);
+    public Panel WithHingeOffset(int hingeOffset) => Clone(p => p.HingeOffset = hingeOffset);
     public Panel WithDimensions(Dimensions dimensions) => Clone(p => p.Dimensions = dimensions ?? Dimensions.None);
     public Panel WithAttachedToSide(int side) => Clone(p => p.AttachedToSide = side);
     public Panel WithCrease(PanelCrease crease) => Clone(p => p.Crease = crease);

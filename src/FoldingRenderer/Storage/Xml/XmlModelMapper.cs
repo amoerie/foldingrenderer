@@ -20,7 +20,7 @@ namespace FoldingRenderer.Storage.Xml {
           .WithInitial(new Rotation(panel.InitialRot))
           .WithStart(new Rotation(panel.StartRot))
           .WithEnd(new Rotation(panel.EndRot)))
-        .WithHingeOffset(panel.HingeOffset)
+        .WithHingeOffset((int) panel.HingeOffset)
         .WithDimensions(new Dimensions()
           .WithWidth((int) panel.PanelWidth)
           .WithHeight((int) panel.PanelHeight))

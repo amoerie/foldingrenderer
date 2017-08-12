@@ -13,7 +13,7 @@ namespace FoldingRenderer.Tests.Types {
         .WithId(Guid.NewGuid())
         .WithName("Panel 1")
         .WithRotation(new PanelRotation().WithInitial(new Rotation(154)))
-        .WithHingeOffset(0.5)
+        .WithHingeOffset(1)
         .WithDimensions(new Dimensions().WithWidth(411))
         .WithAttachedToSide(3)
         .WithCrease(new PanelCrease().WithRight(45))

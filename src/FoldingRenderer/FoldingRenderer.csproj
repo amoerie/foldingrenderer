@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Drawing\EmptyCanvasFactory.cs" />
+    <Compile Include="Drawing\HingeOffsetApplier.cs" />
     <Compile Include="Drawing\PanelRectangleFactory.cs" />
     <Compile Include="Drawing\RectangleRotator.cs" />
     <Compile Include="Drawing\RotationDeterminer.cs" />

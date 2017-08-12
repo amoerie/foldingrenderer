@@ -49,7 +49,8 @@ namespace FoldingRenderer {
             new AttachToHingeDeterminer(),
             new RotationDeterminer(),
             rectangleFactory,
-            new RectangleRotator())),
+            new RectangleRotator(), 
+            new HingeOffsetApplier())),
         new RectangleDrawer());
     }
 

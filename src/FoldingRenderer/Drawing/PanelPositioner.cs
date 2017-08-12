@@ -11,19 +11,23 @@ namespace FoldingRenderer.Drawing {
     readonly IRotationDeterminer _rotationDeterminer;
     readonly IRectangleFactory _rectangleFactory;
     readonly IRectangleRotator _rectangleRotator;
+    readonly IHingeOffsetApplier _hingeOffsetApplier;
 
     public PanelPositioner(IAttachToHingeDeterminer attachToHingeDeterminer,
       IRotationDeterminer rotationDeterminer,
       IRectangleFactory rectangleFactory,
-      IRectangleRotator rectangleRotator) {
+      IRectangleRotator rectangleRotator,
+      IHingeOffsetApplier hingeOffsetApplier) {
       if (attachToHingeDeterminer == null) throw new ArgumentNullException(nameof(attachToHingeDeterminer));
       if (rotationDeterminer == null) throw new ArgumentNullException(nameof(rotationDeterminer));
       if (rectangleFactory == null) throw new ArgumentNullException(nameof(rectangleFactory));
       if (rectangleRotator == null) throw new ArgumentNullException(nameof(rectangleRotator));
+      if (hingeOffsetApplier == null) throw new ArgumentNullException(nameof(hingeOffsetApplier));
       _attachToHingeDeterminer = attachToHingeDeterminer;
       _rotationDeterminer = rotationDeterminer;
       _rectangleFactory = rectangleFactory;
       _rectangleRotator = rectangleRotator;
+      _hingeOffsetApplier = hingeOffsetApplier;
     }
 
     public PanelRectangle Position(PanelRectangle parent, Panel panel) {
@@ -33,7 +37,8 @@ namespace FoldingRenderer.Drawing {
       var rectangle = _rectangleFactory.Create(hingeToAttachTo, panel.Dimensions);
       var rotation = _rotationDeterminer.Determine(parent, panel);
       var rotatedRectangle = _rectangleRotator.Rotate(hingeToAttachTo, rectangle, rotation);
-      return new PanelRectangle(panel, rotatedRectangle, rotation);
+      var rotatedRectangleWithHingeOffset = _hingeOffsetApplier.Apply(rotatedRectangle, rotation, panel.HingeOffset);
+      return new PanelRectangle(panel, rotatedRectangleWithHingeOffset, rotation);
     }
   }
 }

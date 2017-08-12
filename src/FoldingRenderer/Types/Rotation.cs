@@ -34,5 +34,9 @@ namespace FoldingRenderer.Types {
     public override int GetHashCode() {
       return Value;
     }
+
+    public override string ToString() {
+      return $"{nameof(Value)}: {Value}";
+    }
   }
 }
