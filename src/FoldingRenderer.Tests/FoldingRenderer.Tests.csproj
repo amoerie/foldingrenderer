@@ -73,18 +73,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Domain\Drawing\TestsForRotationDeterminer.cs" />
-    <Compile Include="Domain\Drawing\TestsForAttachToHingeDeterminer.cs" />
-    <Compile Include="Domain\Drawing\TestsForPanelHinges.cs" />
-    <Compile Include="Domain\Drawing\TestsForRectangleFactory.cs" />
-    <Compile Include="Domain\Drawing\TestsForRootPanelDrawer.cs" />
-    <Compile Include="Domain\Drawing\TestsForRootPanelPositioner.cs" />
-    <Compile Include="Domain\Types\TestsForPosition.cs" />
-    <Compile Include="Domain\Types\TestsForPanel.cs" />
-    <Compile Include="Domain\Types\TestsForPanelRotation.cs" />
-    <Compile Include="Domain\Types\TestsForDimensions.cs" />
-    <Compile Include="Domain\Types\TestsForPanelCrease.cs" />
-    <Compile Include="Domain\Types\TestsForRotation.cs" />
+    <Compile Include="Drawing\TestsForRectangleRotator.cs" />
+    <Compile Include="Drawing\TestsForRotationDeterminer.cs" />
+    <Compile Include="Drawing\TestsForAttachToHingeDeterminer.cs" />
+    <Compile Include="Drawing\TestsForPanelHinges.cs" />
+    <Compile Include="Drawing\TestsForRectangleFactory.cs" />
+    <Compile Include="Drawing\TestsForRootPanelDrawer.cs" />
+    <Compile Include="Drawing\TestsForRootPanelPositioner.cs" />
+    <Compile Include="Types\TestsForPosition.cs" />
+    <Compile Include="Types\TestsForPanel.cs" />
+    <Compile Include="Types\TestsForPanelRotation.cs" />
+    <Compile Include="Types\TestsForDimensions.cs" />
+    <Compile Include="Types\TestsForPanelCrease.cs" />
+    <Compile Include="Types\TestsForRotation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Storage\TestsForEmbeddedResourceReader.cs" />
     <Compile Include="Storage\Xml\TestsForXmlModelReader.cs" />
@@ -107,6 +108,7 @@
       <Name>FoldingRenderer</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
