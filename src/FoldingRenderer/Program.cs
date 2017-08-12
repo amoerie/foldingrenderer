@@ -38,12 +38,19 @@ namespace FoldingRenderer {
         new XmlModelReader(),
         new XmlModelMapper());
     }
-    
+
     static IFoldingDrawer CreateFoldingDrawer() {
+      var rectangleFactory = new RectangleFactory();
       return new FoldingDrawer(
-        new RootPanelDrawer(
-          new RootPanelPositioner(new RectangleFactory()),
-          new PanelRectangleDrawer()));
+        new EmptyCanvasFactory(),
+        new PanelRectangleFactory(
+          new RootPanelPositioner(rectangleFactory),
+          new PanelPositioner(
+            new AttachToHingeDeterminer(),
+            new RotationDeterminer(),
+            rectangleFactory,
+            new RectangleRotator())),
+        new RectangleDrawer());
     }
 
     static IDrawingSaver CreateDrawingSaver() {

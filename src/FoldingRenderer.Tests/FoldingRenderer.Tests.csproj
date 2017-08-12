@@ -73,12 +73,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Drawing\TestsForPanelRectangleFactory.cs" />
     <Compile Include="Drawing\TestsForRectangleRotator.cs" />
     <Compile Include="Drawing\TestsForRotationDeterminer.cs" />
     <Compile Include="Drawing\TestsForAttachToHingeDeterminer.cs" />
     <Compile Include="Drawing\TestsForPanelHinges.cs" />
     <Compile Include="Drawing\TestsForRectangleFactory.cs" />
-    <Compile Include="Drawing\TestsForRootPanelDrawer.cs" />
     <Compile Include="Drawing\TestsForRootPanelPositioner.cs" />
     <Compile Include="Types\TestsForPosition.cs" />
     <Compile Include="Types\TestsForPanel.cs" />

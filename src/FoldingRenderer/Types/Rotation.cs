@@ -7,26 +7,23 @@ namespace FoldingRenderer.Types {
     public static Rotation Down = new Rotation(180);
     public static Rotation Left = new Rotation(-90);
 
-    readonly int _value;
-
     public Rotation(int value) {
-      if(value < -180 || value > 180)
-        throw new ArgumentException($"Rotation must be between -180° and 180°, tried to pass in {value}°");
-      _value = value;
+      if (value < -180 || value > 180) throw new ArgumentException($"Rotation must be between -180° and 180°, tried to pass in {value}°");
+      Value = value;
     }
 
     public static implicit operator int(Rotation r) {
-      return r._value;
+      return r.Value;
     }
 
-    public int Value => _value;
+    public int Value { get; }
 
     public static Rotation operator +(Rotation first, Rotation second) {
-      return new Rotation((first.Value + second.Value)%360);
+      return new Rotation((first.Value + second.Value) % 360);
     }
 
     public bool Equals(Rotation other) {
-      return _value == other._value;
+      return (Value + 180) % 360 == (other.Value + 180) % 360;
     }
 
     public override bool Equals(object obj) {
@@ -35,7 +32,7 @@ namespace FoldingRenderer.Types {
     }
 
     public override int GetHashCode() {
-      return _value;
+      return Value;
     }
   }
 }

@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Drawing;
+using System.Linq;
 using FoldingRenderer.Types;
 
 namespace FoldingRenderer.Drawing {
@@ -11,21 +11,27 @@ namespace FoldingRenderer.Drawing {
   }
 
   public class FoldingDrawer : IFoldingDrawer {
-    readonly IRootPanelDrawer _rootPanelDrawer;
+    readonly IEmptyCanvasFactory _emptyCanvasFactory;
+    readonly IPanelRectangleFactory _panelRectangleFactory;
+    readonly IRectangleDrawer _rectangleDrawer;
 
-    public FoldingDrawer(IRootPanelDrawer rootPanelDrawer) {
-      if (rootPanelDrawer == null) throw new ArgumentNullException(nameof(rootPanelDrawer));
-      _rootPanelDrawer = rootPanelDrawer;
+    public FoldingDrawer(IEmptyCanvasFactory emptyCanvasFactory, IPanelRectangleFactory panelRectangleFactory, IRectangleDrawer rectangleDrawer) {
+      if (emptyCanvasFactory == null) throw new ArgumentNullException(nameof(emptyCanvasFactory));
+      if (panelRectangleFactory == null) throw new ArgumentNullException(nameof(panelRectangleFactory));
+      if (rectangleDrawer == null) throw new ArgumentNullException(nameof(rectangleDrawer));
+      _emptyCanvasFactory = emptyCanvasFactory;
+      _panelRectangleFactory = panelRectangleFactory;
+      _rectangleDrawer = rectangleDrawer;
     }
 
     public ICanvas Draw(Folding folding) {
-      var canvas = new Canvas(new Bitmap(folding.Dimensions.Width, folding.Dimensions.Height));
-
-      using (var graphics = Graphics.FromImage(canvas.Bitmap)) {
-        graphics.Clear(Color.White);
-      }
-
-      return _rootPanelDrawer.Draw(canvas, folding.RootPanel, folding.RootPanelPosition);
+      if (folding == null) throw new ArgumentNullException(nameof(folding));
+      var emptyCanvas = _emptyCanvasFactory.Create(folding.Dimensions);
+      var panelRectangles = _panelRectangleFactory.Create(folding.RootPanel, folding.RootPanelPosition);
+      var canvasWithRectangles = panelRectangles
+        .Select(panelRectangle => panelRectangle.Rectangle)
+        .Aggregate(emptyCanvas, (canvas, rectangle) => _rectangleDrawer.Draw(canvas, rectangle));
+      return canvasWithRectangles;
     }
   }
 }
