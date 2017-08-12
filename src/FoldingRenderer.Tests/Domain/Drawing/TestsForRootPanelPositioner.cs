@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using FakeItEasy;
 using FluentAssertions;
 using FoldingRenderer.Domain.Drawing;
 using FoldingRenderer.Domain.Types;
@@ -8,9 +9,11 @@ using Xunit;
 namespace FoldingRenderer.Tests.Domain.Drawing {
   public class TestsForRootPanelPositioner {
     readonly RootPanelPositioner _sut;
+    readonly IRectangleFactory _rectangleFactory;
 
     protected TestsForRootPanelPositioner() {
-      _sut = new RootPanelPositioner();
+      _rectangleFactory = A.Fake<IRectangleFactory>();
+      _sut = new RootPanelPositioner(_rectangleFactory);
     }
 
     public class TestsForPosition : TestsForRootPanelPositioner {
@@ -35,18 +38,10 @@ namespace FoldingRenderer.Tests.Domain.Drawing {
       }
 
       [Fact]
-      public void ShouldNotRotateTheRectangle() {
-        _sut.Position(_rootPanel, _rootPanelPosition).Rotation.Should().Be(Rotation.None);
-      }
-
-      [Fact]
       public void ShouldCreateCorrectRectangle() {
-        var panel = _rootPanel.WithDimensions(new Dimensions().WithWidth(100).WithHeight(200));
-        var position = _rootPanelPosition.WithX(50).WithY(100);
-        var actualRectangle = _sut.Position(panel, position).Rectangle;
-        var expectedRectangle = new Rectangle(new Point(0, 300), new Size(100, 200));
-
-        actualRectangle.ShouldBeEquivalentTo(expectedRectangle);
+        var expectedRectangle = new Rectangle(new Point(0, 100), new Size(100, 200));
+        A.CallTo(() => _rectangleFactory.Create(_rootPanelPosition, _rootPanel.Dimensions)).Returns(expectedRectangle);
+        _sut.Position(_rootPanel, _rootPanelPosition).Rectangle.Should().Be(expectedRectangle);
       }
     }
   }

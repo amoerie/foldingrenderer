@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Drawing;
 using FoldingRenderer.Domain.Types;
 
 namespace FoldingRenderer.Domain.Drawing {
@@ -8,30 +7,18 @@ namespace FoldingRenderer.Domain.Drawing {
   }
 
   public class RootPanelPositioner : IRootPanelPositioner {
+    readonly IRectangleFactory _rectangleFactory;
+
+    public RootPanelPositioner(IRectangleFactory rectangleFactory) {
+      if (rectangleFactory == null) throw new ArgumentNullException(nameof(rectangleFactory));
+      _rectangleFactory = rectangleFactory;
+    }
+
     public PanelRectangle Position(Panel rootPanel, Position rootPanelPosition) {
       if (rootPanel == null) throw new ArgumentNullException(nameof(rootPanel));
       if (rootPanelPosition == null) throw new ArgumentNullException(nameof(rootPanelPosition));
-      /*
-       * the root panel position serves as the bottom hinge
-       * 
-       * 
-       *   top left position
-       *      v 
-       *      o---------o---------o
-       *      |                   |
-       *      |                   |
-       *      o                   o
-       *      |                   |
-       *      |                   |
-       *      o---------o---------o
-       *                ^
-       *        root panel position        
-       * 
-       */
-      var rectangleTopLeftPosition = new Position()
-        .WithX(rootPanelPosition.X - rootPanel.Dimensions.Width / 2)
-        .WithY(rootPanelPosition.Y + rootPanel.Dimensions.Height);
-      var rectangle = new Rectangle(rectangleTopLeftPosition.ToPoint(), rootPanel.Dimensions.ToSize());
+
+      var rectangle = _rectangleFactory.Create(rootPanelPosition, rootPanel.Dimensions);
 
       return new PanelRectangle(rootPanel, rectangle, Rotation.None);
     }
