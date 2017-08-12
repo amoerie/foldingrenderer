@@ -73,6 +73,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Drawing\TestsForFoldingDrawer.cs" />
     <Compile Include="Drawing\TestsForPanelRectangleFactory.cs" />
     <Compile Include="Drawing\TestsForRectangleRotator.cs" />
     <Compile Include="Drawing\TestsForRotationDeterminer.cs" />
