@@ -57,5 +57,19 @@ namespace FoldingRenderer.Tests.Domain.Types {
         _dimensions.WithHeight(_value).ShouldBeEquivalentTo(_dimensions, c => c.Excluding(p => p.Height));
       }
     }
+
+    public class TestsForEquals : TestsForDimensions {
+
+      [Theory]
+      [InlineData(0, 0, 0, 0, true)]
+      [InlineData(0, 0, 1, 1, false)]
+      [InlineData(0, 0, 0, 1, false)]
+      [InlineData(0, 0, 1, 0, false)]
+      public void ShouldReturnExpectedResult(int width1, int height1, int width2, int height2, bool expectedResult) {
+        var dimensions1 = new Dimensions().WithWidth(width1).WithHeight(height1);
+        var dimensions2 = new Dimensions().WithWidth(width2).WithHeight(height2);
+        dimensions1.Equals(dimensions2).Should().Be(expectedResult);
+      }
+    }
   }
 }

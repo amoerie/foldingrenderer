@@ -57,5 +57,19 @@ namespace FoldingRenderer.Tests.Domain.Types {
         _position.WithY(_value).ShouldBeEquivalentTo(_position, c => c.Excluding(p => p.Y));
       }
     }
+
+    public class TestsForEquals : TestsForPosition {
+
+      [Theory]
+      [InlineData(0, 0, 0, 0, true)]
+      [InlineData(0, 0, 1, 1, false)]
+      [InlineData(0, 0, 0, 1, false)]
+      [InlineData(0, 0, 1, 0, false)]
+      public void ShouldReturnExpectedResult(int x1, int y1, int x2, int y2, bool expectedResult) {
+        var position1 = new Position().WithX(x1).WithY(y1);
+        var position2 = new Position().WithX(x2).WithY(y2);
+        position1.Equals(position2).Should().Be(expectedResult);
+      }
+    }
   }
 }
