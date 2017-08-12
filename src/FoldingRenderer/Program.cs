@@ -18,9 +18,9 @@ namespace FoldingRenderer {
       Console.WriteLine("Loading file");
       var folding = foldingLoader.Load(EmbeddedResources.BeerPack);
       Console.WriteLine("Drawing panels");
-      var drawing = foldingDrawer.Draw(folding);
+      var canvas = foldingDrawer.Draw(folding);
       Console.WriteLine("Saving drawing");
-      var savedDrawing = drawingSaver.Save(drawing);
+      var savedDrawing = drawingSaver.Save(canvas);
 
       Console.WriteLine($"Saved drawing to {savedDrawing.FullName}");
       Console.WriteLine("Press enter to open the containing folder");
@@ -38,15 +38,11 @@ namespace FoldingRenderer {
         new XmlModelReader(),
         new XmlModelMapper());
     }
-
-    /// <summary>
-    ///   When this becomes sufficiently complex, it might be beneficial to introduce dependency injection here
-    ///   While the object trees are still sparse, keep it simple.
-    /// </summary>
+    
     static IFoldingDrawer CreateFoldingDrawer() {
       return new FoldingDrawer(
         new RootPanelDrawer(
-          new RootPanelPositioner(),
+          new RootPanelPositioner(new RectangleFactory()),
           new PanelRectangleDrawer()));
     }
 

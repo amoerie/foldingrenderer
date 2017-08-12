@@ -1,20 +1,22 @@
-﻿using System.Drawing;
+﻿using System;
 using System.Drawing.Imaging;
 using System.IO;
+using FoldingRenderer.Domain.Drawing;
 
 namespace FoldingRenderer.Storage.Jpg {
   public interface IDrawingSaver {
-    FileInfo Save(Bitmap drawing);
+    FileInfo Save(ICanvas canvas);
   }
 
   public class DrawingSaver : IDrawingSaver {
-    public FileInfo Save(Bitmap drawing) {
+    public FileInfo Save(ICanvas canvas) {
+      if (canvas == null) throw new ArgumentNullException(nameof(canvas));
       var jpegFilePath = Path.Combine("./", "beerpack.jpg");
       var jpegFile = new FileInfo(jpegFilePath);
       if (jpegFile.Exists) {
         jpegFile.Delete();
       }
-      drawing.Save(jpegFile.FullName, ImageFormat.Jpeg);
+      canvas.Bitmap.Save(jpegFile.FullName, ImageFormat.Jpeg);
       return jpegFile;
     }
   }

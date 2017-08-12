@@ -1,23 +1,19 @@
 ﻿using System.Drawing;
-using FoldingRenderer.Domain.Types;
 
 namespace FoldingRenderer.Domain.Drawing {
   public interface IPanelRectangleDrawer {
-    Bitmap Draw(Bitmap bitmap, PanelRectangle panelRectangle);
+    ICanvas Draw(ICanvas canvas, PanelRectangle panelRectangle);
   }
 
   public class PanelRectangleDrawer : IPanelRectangleDrawer {
-    public Bitmap Draw(Bitmap bitmap, PanelRectangle panelRectangle) {
+    public ICanvas Draw(ICanvas canvas, PanelRectangle panelRectangle) {
       Pen blackPen = new Pen(Color.Black, 3);
 
-      using (var graphics = Graphics.FromImage(bitmap)) {
-        // TODO rotate the rectangle if necessary
-        if (panelRectangle.Rotation.Equals(Rotation.None)) {
-          graphics.DrawRectangle(blackPen, panelRectangle.Rectangle);
-        }
+      using (var graphics = Graphics.FromImage(canvas.Bitmap)) {
+        graphics.DrawRectangle(blackPen, panelRectangle.Rectangle);
       }
 
-      return bitmap;
+      return canvas;
     }
   }
 }

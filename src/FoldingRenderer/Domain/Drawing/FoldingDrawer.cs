@@ -4,7 +4,10 @@ using FoldingRenderer.Domain.Types;
 
 namespace FoldingRenderer.Domain.Drawing {
   public interface IFoldingDrawer {
-    Bitmap Draw(Folding folding);
+    /// <summary>
+    /// Draws the specified folding on a new canvas.
+    /// </summary>
+    ICanvas Draw(Folding folding);
   }
 
   public class FoldingDrawer : IFoldingDrawer {
@@ -15,16 +18,14 @@ namespace FoldingRenderer.Domain.Drawing {
       _rootPanelDrawer = rootPanelDrawer;
     }
 
-    public Bitmap Draw(Folding folding) {
-      var bitmap = new Bitmap(folding.Dimensions.Width, folding.Dimensions.Height);
+    public ICanvas Draw(Folding folding) {
+      var canvas = new Canvas(new Bitmap(folding.Dimensions.Width, folding.Dimensions.Height));
 
-      using (var graphics = Graphics.FromImage(bitmap)) {
+      using (var graphics = Graphics.FromImage(canvas.Bitmap)) {
         graphics.Clear(Color.White);
       }
 
-      _rootPanelDrawer.Draw(bitmap, folding.RootPanel, folding.RootPanelPosition);
-
-      return bitmap;
+      return _rootPanelDrawer.Draw(canvas, folding.RootPanel, folding.RootPanelPosition);
     }
   }
 }

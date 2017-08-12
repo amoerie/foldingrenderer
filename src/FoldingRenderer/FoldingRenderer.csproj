@@ -48,8 +48,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Domain\Drawing\RotationDeterminer.cs" />
+    <Compile Include="Domain\Drawing\AttachToHingeDeterminer.cs" />
+    <Compile Include="Domain\Drawing\Canvas.cs" />
+    <Compile Include="Domain\Drawing\PanelHinges.cs" />
+    <Compile Include="Domain\Drawing\PanelPositioner.cs" />
     <Compile Include="Domain\Drawing\PanelRectangle.cs" />
-    <Compile Include="Domain\Drawing\PositionedPanel.cs" />
+    <Compile Include="Domain\Drawing\RectangleFactory.cs" />
     <Compile Include="Domain\Drawing\RootPanelPositioner.cs" />
     <Compile Include="Domain\Types\Position.cs" />
     <Compile Include="Domain\Types\Folding.cs" />

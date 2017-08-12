@@ -1,10 +1,9 @@
 ﻿using System;
-using System.Drawing;
 using FoldingRenderer.Domain.Types;
 
 namespace FoldingRenderer.Domain.Drawing {
   public interface IRootPanelDrawer {
-    Bitmap Draw(Bitmap bitmap, Panel rootPanel, Position rootPanelPosition);
+    ICanvas Draw(ICanvas canvas, Panel rootPanel, Position rootPanelPosition);
   }
 
   public class RootPanelDrawer : IRootPanelDrawer {
@@ -18,9 +17,13 @@ namespace FoldingRenderer.Domain.Drawing {
       _panelRectangleDrawer = panelRectangleDrawer;
     }
 
-    public Bitmap Draw(Bitmap bitmap, Panel rootPanel, Position rootPanelPosition) {
-      var panelRectangle = _rootPanelPositioner.Position(rootPanel, rootPanelPosition);
-      return _panelRectangleDrawer.Draw(bitmap, panelRectangle);
+    public ICanvas Draw(ICanvas canvas, Panel rootPanel, Position rootPanelPosition) {
+      if (canvas == null) throw new ArgumentNullException(nameof(canvas));
+      if (rootPanel == null) throw new ArgumentNullException(nameof(rootPanel));
+      if (rootPanelPosition == null) throw new ArgumentNullException(nameof(rootPanelPosition));
+
+      var rootPanelRectangle = _rootPanelPositioner.Position(rootPanel, rootPanelPosition);
+      return _panelRectangleDrawer.Draw(canvas, rootPanelRectangle);
     }
   }
 }
